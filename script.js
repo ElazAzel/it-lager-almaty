@@ -20,6 +20,8 @@ window.addEventListener('scroll', () => {
 // ========== BURGER MENU ==========
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
+// Set aria-controls
+burger.setAttribute('aria-controls', 'navLinks');
 let overlay = document.querySelector('.nav-overlay');
 if (!overlay) {
   overlay = document.createElement('div');
@@ -94,7 +96,37 @@ if (!isTouch && !isReduced) {
         el.style.transform = `translateY(${offset}px)`;
       }
     });
-  }, { passive: true });
+}, { passive: true });
+
+// ========== CONTACT WIDGET ==========
+var cwOpen = true;
+var cwPanel = document.getElementById('cw-panel');
+var cwBubble = document.getElementById('cw-bubble');
+
+function toggleWidget() {
+  cwOpen = !cwOpen;
+  if (cwOpen) {
+    cwPanel.classList.remove('hidden');
+    cwPanel.classList.add('visible');
+    cwBubble.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    cwBubble.setAttribute('aria-label', 'Закрыть чат');
+  } else {
+    cwPanel.classList.remove('visible');
+    cwPanel.classList.add('hidden');
+    cwBubble.innerHTML = '<svg viewBox="0 0 24 24" fill="white"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+    cwBubble.setAttribute('aria-label', 'Открыть чат');
+  }
+}
+
+function sendCwMessage() {
+  var input = document.getElementById('cw-msg');
+  var text = input.value.trim();
+  if (!text) return;
+  window.open('https://wa.me/77470701495?text=' + encodeURIComponent(text), '_blank');
+  input.value = '';
+  input.placeholder = 'Отправлено!';
+  setTimeout(function () { input.placeholder = 'Ваш вопрос...'; }, 2500);
+}
 }
 
 // ========== STAGGERED REVEAL (IntersectionObserver) ==========
