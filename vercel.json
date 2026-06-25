@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/letniy-it-lager-almaty", "destination": "/letniy-it-lager-almaty.html", "permanent": true },
+    { "source": "/programmirovanie-dlya-detey", "destination": "/programmirovanie-dlya-detey.html", "permanent": true },
+    { "source": "/robototehnika-almaty", "destination": "/robototehnika-almaty.html", "permanent": true },
+    { "source": "/ai-iskusstvennyy-intellekt-dlya-detey", "destination": "/ai-iskusstvennyy-intellekt-dlya-detey.html", "permanent": true },
+    { "source": "/sozdanie-igr-dlya-detey", "destination": "/sozdanie-igr-dlya-detey.html", "permanent": true },
+    { "source": "/startap-lager-dlya-podrostkov", "destination": "/startap-lager-dlya-podrostkov.html", "permanent": true },
+    { "source": "/razvivayushchiy-lager-almaty", "destination": "/razvivayushchiy-lager-almaty.html", "permanent": true },
+    { "source": "/proforientatsiya-dlya-detey", "destination": "/proforientatsiya-dlya-detey.html", "permanent": true }
+  ]
+}
