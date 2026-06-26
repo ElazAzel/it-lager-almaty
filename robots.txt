@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://it-lager-almaty.vercel.app/sitemap.xml
+
+# Yandex
+Host: https://it-lager-almaty.vercel.app
